@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="conatiner-fluid">
+        <div class="row mb-lg-5">
+            <div class="col-md-6 col-12 mx-auto text-center">
+                <h1 class="title">
+                    Seasons
+                </h1>
+            </div>
+        </div>
+        <div class="row holder mb-lg-5">
+            <div class="col-md-10 col-12 mx-auto h-100">
+                <form class="row sholder m-0 p-0 h-100" action="/" method="post">
+                    <input type="text" name="daPlace" class="p-2 col-md-10 col-12 search h-100">
+                    <button name="daBtn" class="butt col-md-2 col-2 p-2 h-100"><i class="fa fa-search"
+                            aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="wcard col-md-6 col-xs-10 col-12 mx-auto p-lg-5">
+                <div class="dholder d-none">
+                    <div class="row">
+                        <div class="col-12 cdata">
+                            {{cname}}, {{ccode}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 datemp">{{temp}}</div>
+                        <div class="col-md-6 col-12 dapic"><img src="" alt=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 dadesc">
+                            {{desc}}
+                        </div>
+                        <div class="col-md-6 col-12 minmax">
+                            Min: {{tmin}} | Max: {{tmax}}
+                        </div>
+                    </div>
+                </div>
+                <p class="eholder d-none display-4 text-center">{{message}}</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Made with <span> ❤ </span> and node js ...
+    </footer>
+
+    <script>
+        const dapic = document.querySelector(".dapic img");
+        dapic.src = `http://openweathermap.org/img/wn/${"{{main}}"}@2x.png`;
+
+        if ("{{message}}") {
+            document.querySelector(".eholder").classList.remove("d-none")
+            document.querySelector(".dholder").classList.add("d-none")
+
+        }
+        else {
+            document.querySelector(".dholder").classList.remove("d-none")
+            document.querySelector(".eholder").classList.add("d-none")
+        }
+
+    </script>
+</body>
+
+</html>
